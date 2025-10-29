@@ -7,7 +7,7 @@
   tags: (),
   show-outline: true,
   body,
-  author: "Max Baker",
+  author: "vinipsmaker",
 ) = {
 
   show: it => {
