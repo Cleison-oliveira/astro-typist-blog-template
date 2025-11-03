@@ -14,7 +14,7 @@ permissions:
 
 concurrency:
   group: "pages"
-  cancel-in-progress: false
+  cancel-in-progress: true
 
 jobs:
   build:
@@ -40,6 +40,9 @@ jobs:
           path: .
           node-version: 22
 
+      - name: Verify build output
+        run: ls -la ./dist
+
       - name: Setup Pages
         uses: actions/configure-pages@v5
 
@@ -47,6 +50,7 @@ jobs:
         uses: actions/upload-pages-artifact@v3
         with:
           path: ./dist
+          artifact-name: astro-dist
 
   deploy:
     runs-on: ubuntu-latest
